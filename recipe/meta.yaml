@@ -1,30 +1,24 @@
-{% set name = "tokyocabinet" %}
 {% set version = "1.4.48" %}
-{% set sha256 = "a003f47c39a91e22d76bc4fe68b9b3de0f38851b160bbb1ca07a4f6441de1f90" %}
 
 package:
-  name: {{ name|lower }}
+  name: tokyocabinet
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: http://fallabs.com/tokyocabinet/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://gitlab.com/patlefort/tokyocabinet/-/archive/v{{ version }}/tokyocabinet-v{{ version }}.tar.gz
+  sha256: 7ac6676532be461a55b91eefa832b36e7118fca01b377d0ed3cad81580d3460d
 
 build:
-  number: 1003
+  number: 1004
   skip: True  # [win]
-
-  detect_binary_files_with_prefix: true
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
+    - make
   host:
-    - zlib
-    - bzip2
-  run:
     - zlib
     - bzip2
 
@@ -40,11 +34,9 @@ test:
 
 about:
   home: http://fallabs.com/tokyocabinet
-  license: LGPL-2.1
+  license: LGPL-2.1-or-later
   license_file: COPYING
-  license_family: LGPL
   summary: 'Tokyo Cabinet is a high performance key-value store written in C.'
-
   description: |
      Tokyo Cabinet is a library of routines for managing a database.
      The database is a simple data file containing records, each is a pair
@@ -73,3 +65,4 @@ about:
 extra:
   recipe-maintainers:
     - aseyboldt
+    - danielnachun
