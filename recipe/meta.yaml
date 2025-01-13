@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  https://gitlab.com/patlefort/tokyocabinet/-/archive/v{{ version }}/tokyocabinet-v{{ version }}.tar.gz
+  url: https://gitlab.com/patlefort/tokyocabinet/-/archive/v{{ version }}/tokyocabinet-v{{ version }}.tar.gz
   sha256: a003f47c39a91e22d76bc4fe68b9b3de0f38851b160bbb1ca07a4f6441de1f90
 
 build:
@@ -37,7 +37,6 @@ about:
   license: LGPL-2.1
   license_file: COPYING
   summary: 'Tokyo Cabinet is a high performance key-value store written in C.'
-
   description: |
      Tokyo Cabinet is a library of routines for managing a database.
      The database is a simple data file containing records, each is a pair
